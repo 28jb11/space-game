@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=3 uid="uid://irt4kb7muv8d"]
+
+[ext_resource type="Script" path="res://scripts/marching_squares.gd" id="1_4g56q"]
+[ext_resource type="PackedScene" uid="uid://bdea0676dkc0" path="res://scenes/tile_map.tscn" id="2_mneic"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_5efmv"]
+noise_type = 3
+seed = 6
+frequency = 0.0463
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_xwi7m"]
+noise = SubResource("FastNoiseLite_5efmv")
+
+[node name="MarchingSquares" type="Node2D"]
+script = ExtResource("1_4g56q")
+noise_height_text = SubResource("NoiseTexture2D_xwi7m")
+
+[node name="TileMap" parent="." instance=ExtResource("2_mneic")]

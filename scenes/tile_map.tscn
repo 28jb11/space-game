@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://bdea0676dkc0"]
+
+[ext_resource type="TileSet" uid="uid://bgd5klj8bkf6h" path="res://resources/ms_tileset_tyrian.tres" id="1_f3uq5"]
+
+[node name="TileMap" type="TileMap"]
+tile_set = ExtResource("1_f3uq5")
+format = 2
