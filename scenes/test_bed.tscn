@@ -1,0 +1,35 @@
+[gd_scene load_steps=2 format=3 uid="uid://c3opfl4r2s7y6"]
+
+[ext_resource type="PackedScene" uid="uid://irt4kb7muv8d" path="res://scenes/marching_squares.tscn" id="1_2o184"]
+
+[node name="TestBed" type="Node"]
+
+[node name="MSTiles" parent="." instance=ExtResource("1_2o184")]
+
+[node name="GenerateTerrain" type="Node2D" parent="."]
+
+[node name="TestControls" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="GenerateMap" type="Button" parent="TestControls"]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+
+[node name="SelectTerrain" type="OptionButton" parent="TestControls"]
+layout_mode = 0
+offset_right = 32.0
+offset_bottom = 20.0
+
+[node name="Height" type="LineEdit" parent="TestControls"]
+layout_mode = 0
+offset_right = 67.0625
+offset_bottom = 31.0
+
+[node name="Width" type="LineEdit" parent="TestControls"]
+layout_mode = 0
+offset_right = 67.0625
+offset_bottom = 31.0

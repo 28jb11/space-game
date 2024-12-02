@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="marchingsquares"
+config/name="space-game"
 run/main_scene="res://scenes/marching_squares.tscn"
 config/features=PackedStringArray("4.3", "Mobile")
 config/icon="res://icon.svg"
