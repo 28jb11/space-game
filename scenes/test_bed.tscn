@@ -1,12 +1,27 @@
-[gd_scene load_steps=2 format=3 uid="uid://c3opfl4r2s7y6"]
+[gd_scene load_steps=7 format=3 uid="uid://c3opfl4r2s7y6"]
 
-[ext_resource type="PackedScene" uid="uid://irt4kb7muv8d" path="res://scenes/marching_squares.tscn" id="1_2o184"]
+[ext_resource type="PackedScene" uid="uid://irt4kb7muv8d" path="res://scenes/tile_wrapper.tscn" id="1_2o184"]
+[ext_resource type="Script" path="res://scripts/test_bed.gd" id="1_jbmxw"]
+[ext_resource type="Script" path="res://scripts/generate_terrain.gd" id="3_blea5"]
+[ext_resource type="PackedScene" uid="uid://bdea0676dkc0" path="res://scenes/tile_map.tscn" id="4_5nyuh"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_7mjxn"]
+seed = 3
+frequency = 0.0315
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_4yeeh"]
+noise = SubResource("FastNoiseLite_7mjxn")
 
 [node name="TestBed" type="Node"]
+script = ExtResource("1_jbmxw")
 
-[node name="MSTiles" parent="." instance=ExtResource("1_2o184")]
+[node name="TileWrapper" parent="." instance=ExtResource("1_2o184")]
 
 [node name="GenerateTerrain" type="Node2D" parent="."]
+script = ExtResource("3_blea5")
+noise_height_text = SubResource("NoiseTexture2D_4yeeh")
+
+[node name="TileMap" parent="." instance=ExtResource("4_5nyuh")]
 
 [node name="TestControls" type="Control" parent="."]
 layout_mode = 3
@@ -14,22 +29,36 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="GenerateMap" type="Button" parent="TestControls"]
+[node name="GenerateTerrainButton" type="Button" parent="TestControls"]
 layout_mode = 0
-offset_right = 8.0
-offset_bottom = 8.0
-
-[node name="SelectTerrain" type="OptionButton" parent="TestControls"]
-layout_mode = 0
-offset_right = 32.0
-offset_bottom = 20.0
-
-[node name="Height" type="LineEdit" parent="TestControls"]
-layout_mode = 0
-offset_right = 67.0625
+offset_right = 179.0
 offset_bottom = 31.0
+text = "Generate Terrain Map"
 
-[node name="Width" type="LineEdit" parent="TestControls"]
+[node name="SelectTerrainMenu" type="OptionButton" parent="TestControls"]
 layout_mode = 0
+offset_top = 96.0
+offset_right = 127.0
+offset_bottom = 127.0
+selected = 0
+item_count = 1
+popup/item_0/text = "Dirt to grass"
+
+[node name="HeightInput" type="LineEdit" parent="TestControls"]
+layout_mode = 0
+offset_top = 32.0
 offset_right = 67.0625
-offset_bottom = 31.0
+offset_bottom = 63.0
+text = "9"
+placeholder_text = "Height"
+
+[node name="WidthInput" type="LineEdit" parent="TestControls"]
+layout_mode = 0
+offset_top = 64.0
+offset_right = 67.0625
+offset_bottom = 95.0
+text = "9"
+placeholder_text = "Width"
+
+[connection signal="pressed" from="TestControls/GenerateTerrainButton" to="." method="_on_generate_terrain_button_pressed"]
+[connection signal="item_selected" from="TestControls/SelectTerrainMenu" to="." method="_on_select_terrain_menu_item_selected"]

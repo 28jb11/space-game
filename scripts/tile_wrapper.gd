@@ -1,51 +1,24 @@
 extends Node2D
 
-class_name MarchingSquares
+class_name TileWrapper
 
 @onready var tilemap = $TileMap
 @onready var tileset = tilemap.tile_set
 @onready var tileset_source = tileset.get_source(0)
 
-@export var noise_height_text = NoiseTexture2D
-var noise = Noise
-
-var grid_width = 100
-var grid_height = 100
-
-var terrains : Array = []
-
 func _ready():
-	_initialize()
+	pass
 
-func _initialize():
+func initialize() -> Dictionary:
+
+	var terrains : Array = []
 	print("initializing terrain sets...")
 	for i in range(tileset.get_custom_data_layers_count()):
 		terrains.append(tileset.get_custom_data_layer_name(i))
-	
-	var cases = get_marching_squares_tiles()
-	print(cases)
-	
-	noise = noise_height_text.noise
-	
-	var map = generate_world()
-	
-	apply_marching_squares_tiles(map, cases)
 
-func generate_world() -> Dictionary:
-	var dirt_index = 0
-	var grass_index = 1
+	var marching_squares_tiles = get_marching_squares_tiles(terrains)
+	return marching_squares_tiles
 	
-	var terrain_positions = {}
-	
-	for x in range(grid_width):
-		for y in range(grid_height):
-			var noise_val = noise.get_noise_2d(x, y)
-			if noise_val <= 0.0:
-				terrain_positions[Vector2(x, y)] = dirt_index
-			elif noise_val > 0.0:
-				terrain_positions[Vector2(x, y)] = grass_index
-	
-	return terrain_positions
 
 func get_tileset_custom_data(terrain : String) -> Dictionary:
 	var tile_positions = []
@@ -60,7 +33,7 @@ func get_tileset_custom_data(terrain : String) -> Dictionary:
 		
 	return tileset_custom_data
 	
-func get_marching_squares_tiles():
+func get_marching_squares_tiles(terrains : Array) -> Dictionary:
 	var marching_squares_tiles : Dictionary = {}
 	for terrain in terrains:
 		var custom_data = get_tileset_custom_data(terrain)
@@ -76,7 +49,7 @@ func tileset_test(cases: Dictionary, cell_position : Vector2):
 		tilemap.set_cell(0, cell_position, tileset.get_source_id(0), atlas_position, 0)
 		cell_position += Vector2(1,0)
 
-func apply_marching_squares_tiles(map: Dictionary, cases: Dictionary):
+func apply_marching_squares(map: Dictionary, cases: Dictionary, grid_width: int, grid_height: int):
 	print("applying marching squares tiles...")
 	
 	for custom_data_layer in cases.keys():
