@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://c3opfl4r2s7y6"]
+[gd_scene load_steps=8 format=3 uid="uid://c3opfl4r2s7y6"]
 
 [ext_resource type="PackedScene" uid="uid://irt4kb7muv8d" path="res://scenes/tile_wrapper.tscn" id="1_2o184"]
 [ext_resource type="Script" path="res://scripts/test_bed.gd" id="1_jbmxw"]
 [ext_resource type="Script" path="res://scripts/generate_terrain.gd" id="3_blea5"]
 [ext_resource type="PackedScene" uid="uid://bdea0676dkc0" path="res://scenes/tile_map.tscn" id="4_5nyuh"]
+[ext_resource type="TileSet" uid="uid://clrqds1f1ui54" path="res://resources/ms_tileset.tres" id="5_a8re0"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_7mjxn"]
 seed = 3
@@ -22,6 +23,9 @@ script = ExtResource("3_blea5")
 noise_height_text = SubResource("NoiseTexture2D_4yeeh")
 
 [node name="TileMap" parent="." instance=ExtResource("4_5nyuh")]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+tile_set = ExtResource("5_a8re0")
 
 [node name="TestControls" type="Control" parent="."]
 layout_mode = 3
