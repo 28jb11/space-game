@@ -1,9 +1,9 @@
 extends Node2D
 
 class_name TileWrapper
-@onready var tilemap: TileMapLayer = $"../TileMapLayer"
+@onready var tilemap: TileMapLayer = $"../TerrainTiles"
 @onready var tileset = tilemap.tile_set
-@onready var tileset_source = tileset.get_source(0)
+@onready var tileset_source = tileset.get_source(2)
 
 func _ready():
 	pass
@@ -51,6 +51,7 @@ func tileset_test(cases: Dictionary, cell_position : Vector2):
 		cell_position += Vector2(1,0)
 
 func apply_marching_squares(map: Dictionary, cases: Dictionary, grid_width: int, grid_height: int):
+	print(cases)
 	print("applying marching squares tiles...")
 	
 	for custom_data_layer in cases.keys():
@@ -72,12 +73,12 @@ func apply_marching_squares(map: Dictionary, cases: Dictionary, grid_width: int,
 				if top_left:
 					index |= 8
 
-				# Assuming 'cases' dictionary has structure {custom_data_layer_name: {tile_atlas_position: marching_squares_case_value}}
+				# Assuming 'cases' dictionary has structure
+				# {custom_data_layer_name: {tile_atlas_position: marching_squares_case_value}}
 				var tiles_for_layer = cases[custom_data_layer]
 				for tile_position in tiles_for_layer.keys():
 					var case_value = tiles_for_layer[tile_position]
 					if case_value == index:
 						# Apply the tile_id to the tilemap at the correct position
-						# tilemap.set_cell(0, Vector2i(x, y), tileset.get_source_id(0), tile_position, 0)
-						tilemap.set_cell(Vector2i(x,y), tileset.get_source_id(0), tile_position, 0)
+						tilemap.set_cell(Vector2i(x,y), tileset.get_source_id(2), tile_position, 0)
 						break
