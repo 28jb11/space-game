@@ -5,12 +5,13 @@ extends Node
 @onready var generate_terain_button = $TestControls/GenerateTerrainButton
 @onready var terrain_generator = $GenerateTerrain
 
-# @onready var tile_wrapper = $TileWrapper
+@onready var tile_wrapper = $TerrainTiles
 
 # var MS_tiles : Dictionary = {}
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	# MS_tiles = tile_wrapper.initialize()
+	tile_wrapper.initialize()
 	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
