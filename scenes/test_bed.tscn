@@ -29,8 +29,10 @@ script = ExtResource("5_t6sc5")
 [node name="TestControls" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 963.0
+offset_top = 11.0
+offset_right = 1163.0
+offset_bottom = 166.0
 
 [node name="GenerateTerrainButton" type="Button" parent="TestControls"]
 layout_mode = 0
