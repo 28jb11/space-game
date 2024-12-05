@@ -28,3 +28,6 @@ func generate_terrain_grid(grid_width : int, grid_height : int) -> Dictionary:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
+
+func set_seed(seed: int):
+	noise.seed = seed

@@ -58,7 +58,7 @@ layout_mode = 0
 offset_top = 32.0
 offset_right = 67.0625
 offset_bottom = 63.0
-text = "9"
+text = "32"
 placeholder_text = "Height"
 
 [node name="WidthInput" type="LineEdit" parent="TestControls"]
@@ -66,8 +66,33 @@ layout_mode = 0
 offset_top = 64.0
 offset_right = 67.0625
 offset_bottom = 95.0
-text = "9"
+text = "32"
 placeholder_text = "Width"
+
+[node name="TestSources" type="Button" parent="TestControls"]
+layout_mode = 0
+offset_top = 128.0
+offset_right = 106.0
+offset_bottom = 159.0
+text = "Test Sources"
+
+[node name="ClearTiles" type="Button" parent="TestControls"]
+layout_mode = 0
+offset_top = 160.0
+offset_right = 88.0
+offset_bottom = 191.0
+text = "Clear Tiles"
+
+[node name="Seed" type="LineEdit" parent="TestControls"]
+layout_mode = 0
+offset_top = 192.0
+offset_right = 67.0625
+offset_bottom = 223.0
+text = "0"
+placeholder_text = "Seed"
 
 [connection signal="pressed" from="TestControls/GenerateTerrainButton" to="." method="_on_generate_terrain_button_pressed"]
 [connection signal="item_selected" from="TestControls/SelectTerrainMenu" to="." method="_on_select_terrain_menu_item_selected"]
+[connection signal="pressed" from="TestControls/TestSources" to="." method="_on_test_sources_pressed"]
+[connection signal="pressed" from="TestControls/ClearTiles" to="." method="_on_clear_tiles_pressed"]
+[connection signal="text_submitted" from="TestControls/Seed" to="." method="_on_seed_text_submitted"]
