@@ -1,16 +1,12 @@
 extends TileMapLayer
 
-var tileset : TileSet
-
-
-
+# creates data structures to find marching squares case values
 func initialize():
 	# get tileset
 	# tileset has multiple sources. each source is a different terrain set
-	tileset = self.tile_set
-	#test_tileset_sources(tileset)
+	var tileset = self.tile_set
 	
-	# create structure for each terrain source
+	# create structure for each terrain source's ms_case data
 	var tile_sources = []
 	for source_id in range(tileset.get_source_count()):
 		var ms = []
@@ -24,31 +20,24 @@ func initialize():
 				if ms_case < 16:
 					ms[ms_case].append(Vector2i(x,y))
 		tile_sources.append(ms)
-		print(tile_sources)
-		
 
-func test_tileset_sources(tileset: TileSet):
+	test_tileset_sources(tile_sources)
+
+func test_tileset_sources(tile_sources):
 	
-	var y_offset = 0
+	var x = 0
+	var y = 0
+
 	# for every tileset source in the tileset
-	for source_id in range(tileset.get_source_count()):
-		# initialize source to a variable
-		var tileset_source = tileset.get_source(source_id)
-		
-		var atlas_size = tileset_source.get_atlas_grid_size()
-		print(atlas_size)
-	
-		for x in range(atlas_size.x):
-			for y in range(atlas_size.y):
-				var tile_data = tileset_source.get_tile_data(Vector2i(x , y), 0)
-				print(tile_data.get_custom_data("ms_case"))
-				
-				set_cell(Vector2i(x , y + y_offset), (source_id), Vector2i(x , y), 0)
-				print(
-				"setting cell at: ", x, " , ", (y + y_offset),
-				" | source_id: ", source_id,
-				" | atlas position: ", x, " , ", y)
-		y_offset += atlas_size.y
+	var source_id = 0
+	for tile_source in tile_sources:
+		y = 0
+		for ms_case in tile_source:
+			# TODO multiple tiles for 1 case detection
+			set_cell(Vector2i(x , y), source_id, ms_case[0], 0)
+			y += 1
+		source_id += 1
+		x += 1
 
 func apply_marching_squares(map: Dictionary, cases: Dictionary):
 	print(cases)

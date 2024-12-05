@@ -26,4 +26,5 @@ func _on_generate_terrain_button_pressed() -> void:
 
 
 func _on_select_terrain_menu_item_selected(index: int) -> void:
+	print(index)
 	pass # Replace with function body.

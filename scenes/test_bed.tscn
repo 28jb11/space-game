@@ -44,8 +44,12 @@ offset_top = 96.0
 offset_right = 127.0
 offset_bottom = 127.0
 selected = 0
-item_count = 1
-popup/item_0/text = "Dirt to grass"
+item_count = 3
+popup/item_0/text = "Numbers"
+popup/item_1/text = "Test"
+popup/item_1/id = 1
+popup/item_2/text = "Plains"
+popup/item_2/id = 2
 
 [node name="HeightInput" type="LineEdit" parent="TestControls"]
 layout_mode = 0
