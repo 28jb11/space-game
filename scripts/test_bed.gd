@@ -11,12 +11,15 @@ extends Node
 
 var tile_sources
 
+var terrain_map : Dictionary
+
 # var MS_tiles : Dictionary = {}
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	# MS_tiles = tile_wrapper.initialize()
 	tile_sources = tile_wrapper.initialize()
 	print(tile_sources)
+	terrain_map = terrain_generator.generate_terrain_grid(int(width_input.text), int(height_input.text))
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -27,12 +30,12 @@ func _on_generate_terrain_button_pressed() -> void:
 	# print(terrain_map)
 	
 func generate_terrain():
-	var terrain_map = terrain_generator.generate_terrain_grid(int(width_input.text), int(height_input.text))
+	terrain_map = terrain_generator.generate_terrain_grid(int(width_input.text), int(height_input.text))
 	tile_wrapper.apply_tiles(terrain_map, terrain_id, tile_sources[terrain_id])
 
 func _on_select_terrain_menu_item_selected(index: int) -> void:
 	terrain_id = index
-
+	tile_wrapper.apply_tiles(terrain_map, terrain_id, tile_sources[terrain_id])
 
 func _on_test_sources_pressed() -> void:
 	tile_wrapper.test_tileset_sources(tile_sources)
