@@ -7,7 +7,7 @@ extends Node
 
 @onready var tile_wrapper = $TerrainTiles
 
-@onready var terrain_id = 0
+@onready var terrain_id = 2
 
 var tile_sources
 
@@ -18,7 +18,7 @@ var terrain_map : Dictionary
 func _ready() -> void:
 	# MS_tiles = tile_wrapper.initialize()
 	tile_sources = tile_wrapper.initialize()
-	print(tile_sources)
+	#print(tile_sources)
 	terrain_map = terrain_generator.generate_terrain_grid(int(width_input.text), int(height_input.text))
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

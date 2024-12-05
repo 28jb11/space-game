@@ -45,7 +45,7 @@ layout_mode = 0
 offset_top = 96.0
 offset_right = 127.0
 offset_bottom = 127.0
-selected = 0
+selected = 2
 item_count = 3
 popup/item_0/text = "Numbers"
 popup/item_1/text = "Test"
@@ -58,7 +58,7 @@ layout_mode = 0
 offset_top = 32.0
 offset_right = 67.0625
 offset_bottom = 63.0
-text = "32"
+text = "100"
 placeholder_text = "Height"
 
 [node name="WidthInput" type="LineEdit" parent="TestControls"]
@@ -66,7 +66,7 @@ layout_mode = 0
 offset_top = 64.0
 offset_right = 67.0625
 offset_bottom = 95.0
-text = "32"
+text = "100"
 placeholder_text = "Width"
 
 [node name="TestSources" type="Button" parent="TestControls"]

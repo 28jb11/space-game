@@ -68,7 +68,7 @@ func apply_tiles(map: Dictionary, terrain_id: int, tile_source):
 		for key in map:
 			var ms_index = get_ms_index(map, Vector2i(key.x, key.y))
 			var valid_tiles = tile_source[ms_index]
-			print(valid_tiles)
+			#print(valid_tiles)
 			set_cell_ms(Vector2i(key.x,key.y), valid_tiles[0], terrain_id)
 
 func set_cell_ms(position: Vector2i, atlas_position: Vector2i, terrain_id: int):
