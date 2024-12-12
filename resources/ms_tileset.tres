@@ -1,8 +1,9 @@
-[gd_resource type="TileSet" load_steps=7 format=3 uid="uid://clrqds1f1ui54"]
+[gd_resource type="TileSet" load_steps=9 format=3 uid="uid://clrqds1f1ui54"]
 
 [ext_resource type="Texture2D" uid="uid://d2fjstxgf0e4n" path="res://resources/dirt_to_grass_tyrian.png" id="2_ah3qe"]
 [ext_resource type="Texture2D" uid="uid://bw1quo2ek5oe6" path="res://resources/marchingsquares.png" id="2_blbig"]
 [ext_resource type="Texture2D" uid="uid://wihf1mr8ion7" path="res://resources/numbers.png" id="3_wbueh"]
+[ext_resource type="Texture2D" uid="uid://b5sxxfbl7uxd1" path="res://resources/rocks_to_dirt_tyrian.png" id="4_pf6v2"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ps1pu"]
 resource_name = "ms_case_numbers"
@@ -115,6 +116,46 @@ texture_region_size = Vector2i(24, 28)
 5:2/0 = 0
 5:2/0/custom_data_0 = -1
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yvkuj"]
+resource_name = "desert"
+texture = ExtResource("4_pf6v2")
+texture_region_size = Vector2i(24, 28)
+0:0/0 = 0
+0:0/0/custom_data_0 = 2
+1:0/0 = 0
+1:0/0/custom_data_0 = 3
+2:0/0 = 0
+2:0/0/custom_data_0 = 1
+3:0/0 = 0
+3:1/0 = 0
+3:1/0/custom_data_0 = 7
+2:1/0 = 0
+2:1/0/custom_data_0 = 9
+1:1/0 = 0
+1:1/0/custom_data_0 = 15
+0:1/0 = 0
+0:1/0/custom_data_0 = 6
+0:2/0 = 0
+0:2/0/custom_data_0 = 4
+1:2/0 = 0
+1:2/0/custom_data_0 = 12
+2:2/0 = 0
+2:2/0/custom_data_0 = 8
+3:2/0 = 0
+3:2/0/custom_data_0 = 14
+4:2/0 = 0
+4:2/0/custom_data_0 = 13
+4:1/0 = 0
+4:1/0/custom_data_0 = 11
+5:1/0 = 0
+5:1/0/custom_data_0 = 10
+5:0/0 = 0
+5:0/0/custom_data_0 = 5
+4:0/0 = 0
+4:0/0/custom_data_0 = -1
+5:2/0 = 0
+5:2/0/custom_data_0 = -1
+
 [resource]
 tile_size = Vector2i(24, 28)
 custom_data_layer_0/name = "ms_case"
@@ -122,3 +163,4 @@ custom_data_layer_0/type = 2
 sources/1 = SubResource("TileSetAtlasSource_uor2f")
 sources/0 = SubResource("TileSetAtlasSource_ps1pu")
 sources/2 = SubResource("TileSetAtlasSource_fog6k")
+sources/3 = SubResource("TileSetAtlasSource_yvkuj")
