@@ -48,13 +48,9 @@ func get_ms_index(map: Dictionary, position: Vector2i) -> int:
 		var y = position.y
 
 		var top_left = map.get(Vector2(x, y), "")
-		print("tl", Vector2i(x,y), top_left)
 		var top_right = map.get(Vector2(x + 1, y), "")
-		print("tr", Vector2i(x + 1, y), top_right)
 		var bottom_left = map.get(Vector2(x, y + 1), "")
-		print("bl", Vector2i(x,y+1), bottom_left)
 		var bottom_right = map.get(Vector2(x + 1, y + 1), "")
-		print("br", Vector2i(x+1,y+1), bottom_right)
 		
 		var index = 0
 		if int(bottom_left) == 1:

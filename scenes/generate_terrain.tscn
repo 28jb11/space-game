@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://cx1e3nykaqi84"]
+
+[ext_resource type="Script" path="res://scripts/generate_terrain.gd" id="1_4siuv"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_7mjxn"]
+seed = 3
+frequency = 0.0315
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_4yeeh"]
+noise = SubResource("FastNoiseLite_7mjxn")
+
+[node name="GenerateTerrain" type="Node2D"]
+script = ExtResource("1_4siuv")
+noise_height_text = SubResource("NoiseTexture2D_4yeeh")

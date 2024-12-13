@@ -1,0 +1,79 @@
+[gd_scene load_steps=2 format=3 uid="uid://b5r55cylmgmib"]
+
+[ext_resource type="Script" path="res://scripts/test_controls.gd" id="1_n8j41"]
+
+[node name="TestControls" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 963.0
+offset_top = 11.0
+offset_right = 1163.0
+offset_bottom = 166.0
+script = ExtResource("1_n8j41")
+
+[node name="GenerateTerrainButton" type="Button" parent="."]
+layout_mode = 0
+offset_right = 179.0
+offset_bottom = 31.0
+text = "Generate Terrain Map"
+
+[node name="SelectTerrainMenu" type="OptionButton" parent="."]
+layout_mode = 0
+offset_top = 96.0
+offset_right = 127.0
+offset_bottom = 127.0
+selected = 2
+item_count = 5
+popup/item_0/text = "Numbers"
+popup/item_1/text = "Test"
+popup/item_1/id = 1
+popup/item_2/text = "Plains"
+popup/item_2/id = 2
+popup/item_3/text = "Desert"
+popup/item_3/id = 3
+popup/item_4/text = "Sky"
+popup/item_4/id = 4
+
+[node name="HeightInput" type="LineEdit" parent="."]
+layout_mode = 0
+offset_top = 32.0
+offset_right = 67.0625
+offset_bottom = 63.0
+text = "100"
+placeholder_text = "Height"
+
+[node name="WidthInput" type="LineEdit" parent="."]
+layout_mode = 0
+offset_top = 64.0
+offset_right = 67.0625
+offset_bottom = 95.0
+text = "100"
+placeholder_text = "Width"
+
+[node name="TestSources" type="Button" parent="."]
+layout_mode = 0
+offset_top = 128.0
+offset_right = 106.0
+offset_bottom = 159.0
+text = "Test Sources"
+
+[node name="ClearTiles" type="Button" parent="."]
+layout_mode = 0
+offset_top = 160.0
+offset_right = 88.0
+offset_bottom = 191.0
+text = "Clear Tiles"
+
+[node name="Seed" type="LineEdit" parent="."]
+layout_mode = 0
+offset_top = 192.0
+offset_right = 67.0625
+offset_bottom = 223.0
+text = "0"
+placeholder_text = "Seed"
+
+[connection signal="pressed" from="GenerateTerrainButton" to="." method="_on_generate_terrain_button_pressed"]
+[connection signal="item_selected" from="SelectTerrainMenu" to="." method="_on_select_terrain_menu_item_selected"]
+[connection signal="pressed" from="TestSources" to="." method="_on_test_sources_pressed"]
+[connection signal="pressed" from="ClearTiles" to="." method="_on_clear_tiles_pressed"]
+[connection signal="text_submitted" from="Seed" to="." method="_on_seed_text_submitted"]
