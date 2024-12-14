@@ -1,10 +1,11 @@
-[gd_resource type="TileSet" load_steps=11 format=3 uid="uid://clrqds1f1ui54"]
+[gd_resource type="TileSet" load_steps=13 format=3 uid="uid://clrqds1f1ui54"]
 
 [ext_resource type="Texture2D" uid="uid://d2fjstxgf0e4n" path="res://resources/dirt_to_grass_tyrian.png" id="2_ah3qe"]
 [ext_resource type="Texture2D" uid="uid://bw1quo2ek5oe6" path="res://resources/marchingsquares.png" id="2_blbig"]
 [ext_resource type="Texture2D" uid="uid://wihf1mr8ion7" path="res://resources/numbers.png" id="3_wbueh"]
 [ext_resource type="Texture2D" uid="uid://b5sxxfbl7uxd1" path="res://resources/rocks_to_dirt_tyrian.png" id="4_pf6v2"]
 [ext_resource type="Texture2D" uid="uid://duw2gcaqxta0c" path="res://resources/sky.png" id="5_kanol"]
+[ext_resource type="Texture2D" uid="uid://dl3uyuo2ognfn" path="res://resources/sky2.png" id="6_pls2x"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ps1pu"]
 resource_name = "ms_case_numbers"
@@ -197,6 +198,46 @@ texture_region_size = Vector2i(24, 28)
 4:2/0/custom_data_0 = 8
 5:2/0 = 0
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_npcih"]
+resource_name = "sky2"
+texture = ExtResource("6_pls2x")
+texture_region_size = Vector2i(24, 28)
+0:0/0 = 0
+0:0/0/custom_data_0 = 7
+1:1/0 = 0
+1:1/0/custom_data_0 = 13
+1:2/0 = 0
+1:2/0/custom_data_0 = 15
+0:2/0 = 0
+0:2/0/custom_data_0 = 15
+0:1/0 = 0
+0:1/0/custom_data_0 = 14
+1:0/0 = 0
+1:0/0/custom_data_0 = 11
+2:0/0 = 0
+2:0/0/custom_data_0 = 2
+3:0/0 = 0
+3:0/0/custom_data_0 = 3
+4:0/0 = 0
+4:0/0/custom_data_0 = 1
+4:1/0 = 0
+4:1/0/custom_data_0 = 9
+4:2/0 = 0
+4:2/0/custom_data_0 = 8
+3:2/0 = 0
+3:2/0/custom_data_0 = 12
+2:2/0 = 0
+2:2/0/custom_data_0 = 4
+2:1/0 = 0
+2:1/0/custom_data_0 = 6
+3:1/0 = 0
+3:1/0/custom_data_0 = 15
+5:1/0 = 0
+5:1/0/custom_data_0 = 10
+5:0/0 = 0
+5:0/0/custom_data_0 = 5
+5:2/0 = 0
+
 [resource]
 tile_size = Vector2i(24, 28)
 custom_data_layer_0/name = "ms_case"
@@ -206,3 +247,4 @@ sources/0 = SubResource("TileSetAtlasSource_ps1pu")
 sources/2 = SubResource("TileSetAtlasSource_fog6k")
 sources/3 = SubResource("TileSetAtlasSource_yvkuj")
 sources/4 = SubResource("TileSetAtlasSource_mcpc2")
+sources/5 = SubResource("TileSetAtlasSource_npcih")

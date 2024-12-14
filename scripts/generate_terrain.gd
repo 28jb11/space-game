@@ -8,7 +8,7 @@ var noise = Noise
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	noise = noise_height_text.noise
-	print("terrain generator active")
+	print("terrain generator active", noise)
 
 func generate_terrain_grid(grid_width : int, grid_height : int) -> Dictionary:
 	var terrain0 = 0
@@ -26,9 +26,5 @@ func generate_terrain_grid(grid_width : int, grid_height : int) -> Dictionary:
 	
 	return terrain_positions
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
-func set_seed(seed: int):
-	noise.seed = seed
+func set_seed(noise_seed: int):
+	noise.seed = noise_seed

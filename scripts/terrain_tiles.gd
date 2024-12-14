@@ -42,10 +42,10 @@ func test_tileset_sources(tile_sources):
 		
 
 
-func get_ms_index(map: Dictionary, position: Vector2i) -> int:
+func get_ms_index(map: Dictionary, grid_position: Vector2i) -> int:
 
-		var x = position.x
-		var y = position.y
+		var x = grid_position.x
+		var y = grid_position.y
 
 		var top_left = map.get(Vector2(x, y), "")
 		var top_right = map.get(Vector2(x + 1, y), "")
@@ -71,5 +71,5 @@ func apply_tiles(map: Dictionary, terrain_id: int, tile_source):
 			#print(valid_tiles)
 			set_cell_ms(Vector2i(key.x,key.y), valid_tiles[0], terrain_id)
 
-func set_cell_ms(position: Vector2i, atlas_position: Vector2i, terrain_id: int):
-	set_cell(position, terrain_id, atlas_position, 0)
+func set_cell_ms(grid_position: Vector2i, atlas_position: Vector2i, terrain_id: int):
+	set_cell(grid_position, terrain_id, atlas_position, 0)
