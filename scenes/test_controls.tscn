@@ -23,7 +23,7 @@ offset_top = 96.0
 offset_right = 127.0
 offset_bottom = 127.0
 selected = 2
-item_count = 6
+item_count = 7
 popup/item_0/text = "Numbers"
 popup/item_1/text = "Test"
 popup/item_1/id = 1
@@ -35,6 +35,8 @@ popup/item_4/text = "Sky"
 popup/item_4/id = 4
 popup/item_5/text = "Sky2"
 popup/item_5/id = 5
+popup/item_6/text = "Space"
+popup/item_6/id = 6
 
 [node name="HeightInput" type="LineEdit" parent="."]
 layout_mode = 0

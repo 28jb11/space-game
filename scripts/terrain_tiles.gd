@@ -6,6 +6,9 @@ func initialize() -> Array:
 	# tileset has multiple sources. each source is a different terrain set
 	var tileset = self.tile_set
 	
+	if tileset == null:
+		print("error initializing tileset")
+	
 	# create structure for each terrain source's ms_case data
 	var tile_sources = []
 	for source_id in range(tileset.get_source_count()):
@@ -16,8 +19,12 @@ func initialize() -> Array:
 		var atlas_size = tileset.get_source(source_id).get_atlas_grid_size()
 		for x in range(atlas_size.x):
 			for y in range(atlas_size.y):
-				var ms_case = tileset.get_source(source_id).get_tile_data(Vector2i(x , y), 0).get_custom_data("ms_case")
-				if ms_case < 16:
+				#print(tileset.get_source(source_id).get_tile_data(Vector2i(x,y), 0))
+				var ms_case = null
+				if tileset.get_source(source_id).get_tile_data(Vector2i(x,y), 0) != null:
+					ms_case = tileset.get_source(source_id).get_tile_data(Vector2i(x , y), 0).get_custom_data("ms_case")
+				#print(ms_case)
+				if ms_case != null and ms_case < 16:
 					ms[ms_case].append(Vector2i(x,y))
 		tile_sources.append(ms)
 
