@@ -76,8 +76,17 @@ offset_bottom = 223.0
 text = "0"
 placeholder_text = "Seed"
 
+[node name="Frequency" type="HSlider" parent="."]
+layout_mode = 0
+offset_top = 224.0
+offset_right = 182.0
+offset_bottom = 240.0
+max_value = 1.0
+step = 0.001
+
 [connection signal="pressed" from="GenerateTerrainButton" to="." method="_on_generate_terrain_button_pressed"]
 [connection signal="item_selected" from="SelectTerrainMenu" to="." method="_on_select_terrain_menu_item_selected"]
 [connection signal="pressed" from="TestSources" to="." method="_on_test_sources_pressed"]
 [connection signal="pressed" from="ClearTiles" to="." method="_on_clear_tiles_pressed"]
 [connection signal="text_submitted" from="Seed" to="." method="_on_seed_text_submitted"]
+[connection signal="drag_ended" from="Frequency" to="." method="_on_frequency_drag_ended"]

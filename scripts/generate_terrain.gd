@@ -28,3 +28,6 @@ func generate_terrain_grid(grid_width : int, grid_height : int) -> Dictionary:
 
 func set_seed(noise_seed: int):
 	noise.seed = noise_seed
+
+func set_frequency(noise_frequency: float):
+	noise.frequency = noise_frequency

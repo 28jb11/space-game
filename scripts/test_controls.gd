@@ -7,6 +7,7 @@ extends Control
 @onready var height_input = $HeightInput
 @onready var generate_terain_button = $GenerateTerrainButton
 @onready var terrain_generator = $"../GenerateTerrain"
+@onready var frequency_slider = $Frequency
 
 @onready var terrain_id = 2
 
@@ -16,6 +17,8 @@ var terrain_map : Dictionary
 
 func _ready() -> void:
 	# TODO what is this doing here?
+	# This should only happen in main, or in a node dedicated to initialization.
+	# How?
 	tile_sources = tile_wrapper.initialize()
 
 func _on_generate_terrain_button_pressed() -> void:
@@ -39,3 +42,8 @@ func _on_clear_tiles_pressed() -> void:
 func _on_seed_text_submitted(new_text: String) -> void:
 	terrain_generator.set_seed(int(new_text))
 	generate_terrain()
+
+
+func _on_frequency_drag_ended(_value_changed: bool) -> void:
+	terrain_generator.set_frequency(frequency_slider.value)
+	pass # Replace with function body.
