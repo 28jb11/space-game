@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://d2fjstxgf0e4n" path="res://resources/dirt_to_grass_tyrian.png" id="2_ah3qe"]
 [ext_resource type="Texture2D" uid="uid://bw1quo2ek5oe6" path="res://resources/marchingsquares.png" id="2_blbig"]
 [ext_resource type="Texture2D" uid="uid://wihf1mr8ion7" path="res://resources/numbers.png" id="3_wbueh"]
-[ext_resource type="Texture2D" uid="uid://b5sxxfbl7uxd1" path="res://resources/rocks_to_dirt_tyrian.png" id="4_pf6v2"]
+[ext_resource type="Texture2D" uid="uid://clsxy7vxn85qr" path="res://resources/dirt_to_rocks_tyrian.png" id="4_lq3io"]
 [ext_resource type="Texture2D" uid="uid://duw2gcaqxta0c" path="res://resources/sky.png" id="5_kanol"]
 [ext_resource type="Texture2D" uid="uid://dl3uyuo2ognfn" path="res://resources/sky2.png" id="6_pls2x"]
 [ext_resource type="Texture2D" uid="uid://dwnpsbgl5m57m" path="res://resources/space_holes2.png" id="7_55dt4"]
@@ -116,12 +116,10 @@ texture_region_size = Vector2i(24, 28)
 3:2/0/custom_data_0 = 14
 4:2/0 = 0
 4:2/0/custom_data_0 = 13
-5:2/0 = 0
-5:2/0/custom_data_0 = -1
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yvkuj"]
 resource_name = "desert"
-texture = ExtResource("4_pf6v2")
+texture = ExtResource("4_lq3io")
 texture_region_size = Vector2i(24, 28)
 0:0/0 = 0
 0:0/0/custom_data_0 = 2

@@ -1,5 +1,7 @@
 extends TileMapLayer
 
+const ALTERNATIVE_TILE = 0
+
 # creates data structures to find marching squares case values
 func initialize() -> Array:
 	# get tileset
@@ -46,8 +48,6 @@ func test_tileset_sources(tile_sources):
 			y += 1
 		source_id += 1
 		x += 1
-		
-
 
 func get_ms_index(map: Dictionary, grid_position: Vector2i) -> int:
 
@@ -75,8 +75,15 @@ func apply_tiles(map: Dictionary, terrain_id: int, tile_source):
 		for key in map:
 			var ms_index = get_ms_index(map, Vector2i(key.x, key.y))
 			var valid_tiles = tile_source[ms_index]
-			#print(valid_tiles)
-			set_cell_ms(Vector2i(key.x,key.y), valid_tiles[0], terrain_id)
+			# print(valid_tiles)
+			var rng = RandomNumberGenerator.new()
+			var ms_case_tile = 0
+			if valid_tiles.size() > 1:
+				# TODO implement % based RNG for tiles. Some tiles should appear
+				# most of the time, and some rarely.
+				ms_case_tile = rng.randi_range(0, valid_tiles.size() - 1)
+				# print(valid_tiles)
+			set_cell_ms(Vector2i(key.x,key.y), valid_tiles[ms_case_tile], terrain_id)
 
 func set_cell_ms(grid_position: Vector2i, atlas_position: Vector2i, terrain_id: int):
-	set_cell(grid_position, terrain_id, atlas_position, 0)
+	set_cell(grid_position, terrain_id, atlas_position, ALTERNATIVE_TILE)

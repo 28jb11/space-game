@@ -1,6 +1,6 @@
 extends Control
 
-
+# TODO what is this doing here?
 @onready var tile_wrapper: TileMapLayer = $"../TerrainTiles"
 
 @onready var width_input = $WidthInput
@@ -15,9 +15,8 @@ var tile_sources
 var terrain_map : Dictionary
 
 func _ready() -> void:
+	# TODO what is this doing here?
 	tile_sources = tile_wrapper.initialize()
-	#terrain_map = terrain_generator.generate_terrain_grid(int(width_input.text), int(height_input.text))
-	print(terrain_map)
 
 func _on_generate_terrain_button_pressed() -> void:
 	print("generate terrain button pressed")
