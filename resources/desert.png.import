@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://clsxy7vxn85qr"
-path="res://.godot/imported/dirt_to_rocks_tyrian.png-cb50bc49c6708480c7f3642c4755da38.ctex"
+path="res://.godot/imported/desert.png-9c48557b0977324adb662b53d35565ed.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://resources/dirt_to_rocks_tyrian.png"
-dest_files=["res://.godot/imported/dirt_to_rocks_tyrian.png-cb50bc49c6708480c7f3642c4755da38.ctex"]
+source_file="res://resources/desert.png"
+dest_files=["res://.godot/imported/desert.png-9c48557b0977324adb662b53d35565ed.ctex"]
 
 [params]
 

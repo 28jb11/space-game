@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://d2fjstxgf0e4n"
-path="res://.godot/imported/dirt_to_grass_tyrian.png-0ba110fa5de82d4b5fc6f6c7de0f0957.ctex"
+path="res://.godot/imported/plains.png-4f552245e6b2b64c874047413968f1a6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://resources/dirt_to_grass_tyrian.png"
-dest_files=["res://.godot/imported/dirt_to_grass_tyrian.png-0ba110fa5de82d4b5fc6f6c7de0f0957.ctex"]
+source_file="res://resources/plains.png"
+dest_files=["res://.godot/imported/plains.png-4f552245e6b2b64c874047413968f1a6.ctex"]
 
 [params]
 

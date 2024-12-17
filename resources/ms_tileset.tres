@@ -1,12 +1,12 @@
 [gd_resource type="TileSet" load_steps=15 format=3 uid="uid://clrqds1f1ui54"]
 
-[ext_resource type="Texture2D" uid="uid://d2fjstxgf0e4n" path="res://resources/dirt_to_grass_tyrian.png" id="2_ah3qe"]
 [ext_resource type="Texture2D" uid="uid://bw1quo2ek5oe6" path="res://resources/marchingsquares.png" id="2_blbig"]
+[ext_resource type="Texture2D" uid="uid://d2fjstxgf0e4n" path="res://resources/plains.png" id="3_c50w8"]
 [ext_resource type="Texture2D" uid="uid://wihf1mr8ion7" path="res://resources/numbers.png" id="3_wbueh"]
-[ext_resource type="Texture2D" uid="uid://clsxy7vxn85qr" path="res://resources/dirt_to_rocks_tyrian.png" id="4_lq3io"]
+[ext_resource type="Texture2D" uid="uid://clsxy7vxn85qr" path="res://resources/desert.png" id="4_dip3t"]
 [ext_resource type="Texture2D" uid="uid://duw2gcaqxta0c" path="res://resources/sky.png" id="5_kanol"]
 [ext_resource type="Texture2D" uid="uid://dl3uyuo2ognfn" path="res://resources/sky2.png" id="6_pls2x"]
-[ext_resource type="Texture2D" uid="uid://dwnpsbgl5m57m" path="res://resources/space_holes2.png" id="7_55dt4"]
+[ext_resource type="Texture2D" uid="uid://dwnpsbgl5m57m" path="res://resources/spacerocks.png" id="7_gnyu5"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ps1pu"]
 resource_name = "ms_case_numbers"
@@ -82,7 +82,7 @@ texture_region_size = Vector2i(24, 28)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fog6k"]
 resource_name = "plains"
-texture = ExtResource("2_ah3qe")
+texture = ExtResource("3_c50w8")
 texture_region_size = Vector2i(24, 28)
 0:0/0 = 0
 0:0/0/custom_data_0 = 2
@@ -91,7 +91,9 @@ texture_region_size = Vector2i(24, 28)
 2:0/0 = 0
 2:0/0/custom_data_0 = 1
 3:0/0 = 0
+3:0/0/probability = 0.5
 4:0/0 = 0
+4:0/0/probability = 0.5
 5:0/0 = 0
 5:0/0/custom_data_0 = 5
 0:1/0 = 0
@@ -119,7 +121,7 @@ texture_region_size = Vector2i(24, 28)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yvkuj"]
 resource_name = "desert"
-texture = ExtResource("4_lq3io")
+texture = ExtResource("4_dip3t")
 texture_region_size = Vector2i(24, 28)
 0:0/0 = 0
 0:0/0/custom_data_0 = 2
@@ -186,8 +188,10 @@ texture_region_size = Vector2i(24, 28)
 5:1/0 = 0
 5:1/0/custom_data_0 = 5
 0:2/0 = 0
+0:2/0/probability = 0.5
 0:2/0/custom_data_0 = 15
 1:2/0 = 0
+1:2/0/probability = 0.5
 1:2/0/custom_data_0 = 15
 2:2/0 = 0
 2:2/0/custom_data_0 = 4
@@ -206,8 +210,10 @@ texture_region_size = Vector2i(24, 28)
 1:1/0 = 0
 1:1/0/custom_data_0 = 13
 1:2/0 = 0
+1:2/0/probability = 0.5
 1:2/0/custom_data_0 = 15
 0:2/0 = 0
+0:2/0/probability = 0.5
 0:2/0/custom_data_0 = 15
 0:1/0 = 0
 0:1/0/custom_data_0 = 14
@@ -238,7 +244,8 @@ texture_region_size = Vector2i(24, 28)
 5:2/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_etk37"]
-texture = ExtResource("7_55dt4")
+resource_name = "spacerocks"
+texture = ExtResource("7_gnyu5")
 texture_region_size = Vector2i(24, 28)
 0:0/0 = 0
 0:0/0/custom_data_0 = 7
@@ -263,7 +270,9 @@ texture_region_size = Vector2i(24, 28)
 5:1/0 = 0
 5:1/0/custom_data_0 = 10
 0:2/0 = 0
+0:2/0/probability = 0.5
 1:2/0 = 0
+1:2/0/probability = 0.1
 2:2/0 = 0
 2:2/0/custom_data_0 = 4
 3:2/0 = 0
@@ -271,10 +280,15 @@ texture_region_size = Vector2i(24, 28)
 4:2/0 = 0
 4:2/0/custom_data_0 = 8
 0:3/0 = 0
+0:3/0/probability = 0.5
 1:3/0 = 0
+1:3/0/probability = 0.1
 2:3/0 = 0
+2:3/0/probability = 0.1
 3:3/0 = 0
+3:3/0/probability = 0.1
 4:3/0 = 0
+4:3/0/probability = 0.1
 3:1/0 = 0
 3:1/0/custom_data_0 = 15
 

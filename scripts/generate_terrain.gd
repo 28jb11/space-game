@@ -5,7 +5,6 @@ class_name GenerateTerrain
 @export var noise_height_text = NoiseTexture2D
 var noise = Noise
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	noise = noise_height_text.noise
 	print("terrain generator active", noise)
