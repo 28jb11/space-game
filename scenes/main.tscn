@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://ce1sjbq7xhcqp"]
+[gd_scene load_steps=6 format=3 uid="uid://ce1sjbq7xhcqp"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_m84iv"]
 [ext_resource type="PackedScene" uid="uid://b5r55cylmgmib" path="res://scenes/test_controls.tscn" id="2_jmnvw"]
 [ext_resource type="PackedScene" uid="uid://cx1e3nykaqi84" path="res://scenes/generate_terrain.tscn" id="3_gltsv"]
 [ext_resource type="PackedScene" uid="uid://cibp1nvgpnro" path="res://scenes/terrain_tiles.tscn" id="4_y3x28"]
+[ext_resource type="PackedScene" uid="uid://7wwl8blyrfx0" path="res://scenes/player.tscn" id="5_ivilu"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_m84iv")
@@ -13,3 +14,6 @@ script = ExtResource("1_m84iv")
 [node name="TerrainTiles" parent="." instance=ExtResource("4_y3x28")]
 
 [node name="TestControls" parent="." instance=ExtResource("2_jmnvw")]
+
+[node name="Player" parent="." instance=ExtResource("5_ivilu")]
+position = Vector2(518, 292)
