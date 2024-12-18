@@ -81,14 +81,12 @@ func apply_tiles(map: Dictionary, terrain_id: int, tile_source):
 				# most of the time, and some rarely.
 				# Suggested to use "weighted random choice". Maybe i need another layer on the tileset?
 				for tile in valid_tiles:
-					#print("valid_tiles", valid_tiles, "tile: ", tile)
 					var tile_probability = get_tile_probability(tile_source, tile)
-					#print(typeof(tile_probability))
+					print(tile_source)
+					# get tile probability for tile at atlas position 'tile'
+					
 				ms_case_tile = rng.randi_range(0, valid_tiles.size() - 1)
 			set_cell_ms(Vector2i(key.x,key.y), valid_tiles[ms_case_tile], terrain_id)
-			
-func weighted_random_choice(tiles):
-	pass
 
 func get_tile_probability(tile_source, tile):
 	if tile_source.has(tile):

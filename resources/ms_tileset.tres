@@ -294,6 +294,7 @@ texture_region_size = Vector2i(24, 28)
 
 [resource]
 tile_size = Vector2i(24, 28)
+terrain_set_0/mode = 0
 custom_data_layer_0/name = "ms_case"
 custom_data_layer_0/type = 2
 sources/1 = SubResource("TileSetAtlasSource_uor2f")
