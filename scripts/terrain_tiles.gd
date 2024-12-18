@@ -2,11 +2,11 @@ extends TileMapLayer
 
 const ALTERNATIVE_TILE = 0
 
+# tileset has multiple sources. each source is a different terrain set
+@onready var tileset = self.tile_set
+
 # creates data structures to find marching squares case values
 func initialize() -> Array:
-	# get tileset
-	# tileset has multiple sources. each source is a different terrain set
-	var tileset = self.tile_set
 	
 	if tileset == null:
 		print("error initializing tileset")
@@ -77,23 +77,30 @@ func apply_tiles(map: Dictionary, terrain_id: int, tile_source):
 			var rng = RandomNumberGenerator.new()
 			var ms_case_tile = 0
 			if valid_tiles.size() > 1:
-				# TODO implement % based RNG for tiles. Some tiles should appear
-				# most of the time, and some rarely.
-				# Suggested to use "weighted random choice". Maybe i need another layer on the tileset?
+				# generate cumulative weights list based on on probabilities
+				var weights = []
 				for tile in valid_tiles:
-					var tile_probability = get_tile_probability(tile_source, tile)
-					print(tile_source)
-					# get tile probability for tile at atlas position 'tile'
-					
-				ms_case_tile = rng.randi_range(0, valid_tiles.size() - 1)
+					var tile_probability = get_tile_probability(tile, terrain_id)
+					weights.append(tile_probability)
+				ms_case_tile = weighted_random_choice(weights, rng)
 			set_cell_ms(Vector2i(key.x,key.y), valid_tiles[ms_case_tile], terrain_id)
 
-func get_tile_probability(tile_source, tile):
-	if tile_source.has(tile):
-		print("tile_source has tile")
-		print(tile_source[tile].probability)
-		return tile_source[tile].probability
-	return 1.0
+func get_tile_probability(tile, terrain_id) -> float:
+	return tileset.get_source(terrain_id).get_tile_data(tile, 0).probability
 
 func set_cell_ms(grid_position: Vector2i, atlas_position: Vector2i, terrain_id: int):
 	set_cell(grid_position, terrain_id, atlas_position, ALTERNATIVE_TILE)
+
+func weighted_random_choice(weights, rng):
+	var cumulative_weights = []
+	var sum = 0.0
+	for weight in weights:
+		sum += weight
+		cumulative_weights.append(sum)
+		
+	var random_value = rng.randf_range(0.0, sum)
+	
+	for i in range(cumulative_weights.size()):
+		if random_value < cumulative_weights[i]:
+			return i
+	return 0 # Fallback in case of rounding errors
