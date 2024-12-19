@@ -15,7 +15,7 @@ func change_spaceship_appearance(starting_frame: Vector2):
 	var frame_size = sprite.texture.get_size() / Vector2(sprite.hframes, sprite.vframes)
 	sprite.region_rect = Rect2(starting_frame, frame_size)
 
-func _process(delta):
+func _process(_delta):
 	velocity = Vector2.ZERO
 
 	if Input.is_action_pressed("ui_right"):

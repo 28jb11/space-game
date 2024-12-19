@@ -21,14 +21,15 @@ func initialize() -> Array:
 		var atlas_size = tileset.get_source(source_id).get_atlas_grid_size()
 		for x in range(atlas_size.x):
 			for y in range(atlas_size.y):
-				#print(tileset.get_source(source_id).get_tile_data(Vector2i(x,y), 0))
-				var ms_case = null
-				if tileset.get_source(source_id).get_tile_data(Vector2i(x,y), 0) != null:
-					ms_case = tileset.get_source(source_id).get_tile_data(Vector2i(x , y), 0).get_custom_data("ms_case")
-				#print(ms_case)
-				if ms_case != null and ms_case < 16:
-					ms[ms_case].append(Vector2i(x,y))
+				if tileset.get_source(source_id).has_tile(Vector2i(x,y)):
+					var tile_data = tileset.get_source(source_id).get_tile_data(Vector2i(x, y), 0)
+					if tile_data != null:
+						var ms_case = tile_data.get_custom_data("ms_case")
+						if ms_case != null and ms_case < 16:
+							ms[ms_case].append(Vector2i(x,y))
+						else: print("No tile at ", Vector2i(x,y))
 		tile_sources.append(ms)
+
 	test_tileset_sources(tile_sources)
 	return tile_sources
 
